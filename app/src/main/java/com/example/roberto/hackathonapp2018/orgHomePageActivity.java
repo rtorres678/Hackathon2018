@@ -31,7 +31,7 @@ public class orgHomePageActivity extends AppCompatActivity {
 
         listEvents = new ArrayList<>();
 
-        for(int i = 0; i < 20; i++){
+        for(int i = 0; i < 5; i++){
             Event event = new Event("HackUTA","Nedderman Hall", "24 hour long hacking event",
                     false, "computer science");
             listEvents.add(event);
@@ -53,7 +53,22 @@ public class orgHomePageActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(this, datePicker.class);
         //intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+        startActivityForResult(intent, 0);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                // A contact was picked.  Here we will just display it
+                // to the user.
+                //startActivity(new Intent(Intent.ACTION_VIEW, data));
+                Event newEvent = (Event) data.getSerializableExtra("Event");
+                //onCreate(this.saved);
+                listEvents.add(newEvent);
+                mAdapter.notifyDataSetChanged();
+            }
+        }
     }
 
 }

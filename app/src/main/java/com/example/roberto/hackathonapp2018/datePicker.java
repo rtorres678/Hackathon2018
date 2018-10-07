@@ -1,5 +1,6 @@
 package com.example.roberto.hackathonapp2018;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -35,11 +36,12 @@ public class datePicker extends AppCompatActivity implements TimePickerInterface
     }*/
 
     public void save(View v) {
-        String text = org.getText().toString();
-        String t = event.getText().toString();
-        String te = loca.getText().toString();
-        String tex = desc.getText().toString();
+        String text = (String) org.getText().toString();
+        String t = (String) event.getText().toString();
+        String te = (String)loca.getText().toString();
+        String tex = (String) desc.getText().toString();
         FileOutputStream fos = null;
+        Event eventNew = new Event( t, te, tex, false,"");
 
         try {
             fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
@@ -51,6 +53,12 @@ public class datePicker extends AppCompatActivity implements TimePickerInterface
             desc.getText().clear();
             Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
                     Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent();
+            intent.putExtra("Event", eventNew);
+            setResult(RESULT_OK, intent);
+            finish();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
