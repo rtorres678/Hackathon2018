@@ -66,6 +66,7 @@ public class datePicker extends AppCompatActivity implements TimePickerInterface
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_picker);
         initViews();
+
     }
 
     private void initViews() {
