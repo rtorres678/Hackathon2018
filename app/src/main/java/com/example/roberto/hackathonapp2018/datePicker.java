@@ -22,7 +22,10 @@ import java.io.InputStreamReader;
 public class datePicker extends AppCompatActivity implements TimePickerInterface, DatePickerSelectionInterface {
     private static final String FILE_NAME = "events.txt";
 
-    EditText mEditText;
+    EditText org;
+    EditText event;
+    EditText loca;
+    EditText desc;
     /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +35,20 @@ public class datePicker extends AppCompatActivity implements TimePickerInterface
     }*/
 
     public void save(View v) {
-        String text = mEditText.getText().toString();
+        String text = org.getText().toString();
+        String t = event.getText().toString();
+        String te = loca.getText().toString();
+        String tex = desc.getText().toString();
         FileOutputStream fos = null;
 
         try {
             fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
             fos.write(text.getBytes());
 
-            mEditText.getText().clear();
+            org.getText().clear();
+            event.getText().clear();
+            loca.getText().clear();
+            desc.getText().clear();
             Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
                     Toast.LENGTH_LONG).show();
         } catch (FileNotFoundException e) {
@@ -66,6 +75,11 @@ public class datePicker extends AppCompatActivity implements TimePickerInterface
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_picker);
         initViews();
+
+        org = findViewById(R.id.organization);
+        event = findViewById(R.id.event);
+        loca = findViewById(R.id.location);
+        desc = findViewById(R.id.description);
     }
 
     private void initViews() {
