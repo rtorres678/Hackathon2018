@@ -1,13 +1,15 @@
 package com.example.roberto.hackathonapp2018;
 
-public class Event
+import java.io.Serializable;
+
+public class Event implements Serializable
 {
     //Picture
     private String name;
     //Date
     //Time
     private String location;
-    private String discription;
+    private String description;
     private boolean rsvp;
     private Organization organization;
     private String tags;
@@ -28,12 +30,12 @@ public class Event
         this.location = location;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public boolean isRsvp() {
@@ -61,10 +63,10 @@ public class Event
 
 
 
-    public Event(String name, String location, String discription, boolean rsvp, String tags) {
+    public Event(String name, String location, String description, boolean rsvp, String tags) {
         this.name = name;
         this.location = location;
-        this.discription = discription;
+        this.description = description;
         this.rsvp = rsvp;
         this.tags = tags;
         this.organization = organization;

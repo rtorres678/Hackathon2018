@@ -16,8 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".orgHomePageActivity" />
-        <activity android:name=".datePicker"></activity>
+        <activity
+            android:name=".orgHomePageActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".datePicker"
+            android:parentActivityName=".orgHomePageActivity"></activity>
+        <activity android:name=".eventDetailsActivity"
+            android:parentActivityName=".orgHomePageActivity"></activity>
     </application>
 
 </manifest>

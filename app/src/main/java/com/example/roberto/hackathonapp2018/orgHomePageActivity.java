@@ -44,8 +44,9 @@ public class orgHomePageActivity extends AppCompatActivity {
 
     public void onClick1(View v)
     {
+
         Intent intent = new Intent(this, orgHomePageActivity.class);
-        //intent.putExtra(EXTRA_MESSAGE, message);
+        //intent.putExtras();
         startActivity(intent);
     }
     public void onClick2(View v)
