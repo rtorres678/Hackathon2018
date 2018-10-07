@@ -8,6 +8,9 @@ public class Event
     //Time
     private String location;
     private String discription;
+    private boolean rsvp;
+    private Organization organization;
+    private String tags;
 
     public String getName() {
         return name;
@@ -40,6 +43,13 @@ public class Event
     public void setRsvp(boolean rsvp) {
         this.rsvp = rsvp;
     }
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
 
     public String getTags() {
         return tags;
@@ -49,9 +59,7 @@ public class Event
         this.tags = tags;
     }
 
-    private boolean rsvp;
-    //Organization
-    private String tags;
+
 
     public Event(String name, String location, String discription, boolean rsvp, String tags) {
         this.name = name;
@@ -59,5 +67,6 @@ public class Event
         this.discription = discription;
         this.rsvp = rsvp;
         this.tags = tags;
+        this.organization = organization;
     }
 }

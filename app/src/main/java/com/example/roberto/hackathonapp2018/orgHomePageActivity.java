@@ -50,7 +50,7 @@ public class orgHomePageActivity extends AppCompatActivity {
     }
     public void onClick2(View v)
     {
-        Intent intent = new Intent(this, orgHomePageActivity.class);
+        Intent intent = new Intent(this, datePicker.class);
         //intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
