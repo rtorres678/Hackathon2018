@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class datePicker extends AppCompatActivity implements DatePickerSelectionInterface {
+public class datePicker extends AppCompatActivity implements TimePickerInterface, DatePickerSelectionInterface {
 
     private long mLastTimePickerValue;
     private long mLastDatePickerValue;
